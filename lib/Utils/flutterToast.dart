@@ -8,7 +8,7 @@ class CustomToast {
     Color backgroundColor = Colors.black,
     Color textColor = Colors.white,
     double fontSize = 16.0,
-    Toast length = Toast.LENGTH_SHORT,
+    Toast length = Toast.LENGTH_LONG,
   }) {
     Fluttertoast.showToast(
       msg: message,

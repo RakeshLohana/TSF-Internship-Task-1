@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tsf_task_1/constants.dart';
-import 'package:tsf_task_1/dbHandler.dart';
-import 'package:tsf_task_1/db_model.dart';
-import 'package:tsf_task_1/global.dart';
-import 'package:tsf_task_1/transferMoney.dart';
+import 'package:tsf_task_1/Utils/constants.dart';
+import 'package:tsf_task_1/SQFLite/dbHandler.dart';
+import 'package:tsf_task_1/SQFLite/db_model.dart';
+import 'package:tsf_task_1/Utils/global.dart';
+import 'package:tsf_task_1/Screens/transferMoney.dart';
 
 class Home extends StatefulWidget {
 final int? id;
@@ -35,6 +35,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          
+  leading: const BackButton(
+    color: Colors.white, // <-- SEE HERE
+
+),
+
+ 
         backgroundColor: AppColor.backgroundColor,
         // elevation: 0,
         title: Text(
@@ -50,25 +57,25 @@ class _HomeState extends State<Home> {
           child: DataList(),
         ))
       ]),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          dbHelper!
-              .insert(DBModel(
-                  name: 'Hameem Khalil',
-                  currentBalance: 15000,
-                  email: 'hameem@gmail.com'))
-              .then((value) {
-            setState(() {
-              notesList = dbHelper!.getList();
-            });
+      // floatingActionButton: FloatingActionButton(
+      //   child: const Icon(Icons.add),
+      //   onPressed: () {
+      //     dbHelper!
+      //         .insert(DBModel(
+      //             name: 'Jogindar Kumar',
+      //             currentBalance: 32000,
+      //             email: 'jogindar@gmail.com'))
+      //         .then((value) {
+      //       setState(() {
+      //         notesList = dbHelper!.getList();
+      //       });
 
-            print('Data Added');
-          }).onError((error, stackTrace) {
-            print(error.toString());
-          });
-        },
-      ),
+      //       print('Data Added');
+      //     }).onError((error, stackTrace) {
+      //       print(error.toString());
+      //     });
+      //   },
+      // ),
     );
   }
 }
@@ -100,7 +107,7 @@ class _DataListState extends State<DataList> {
     });
   }
 
-  double fontSize = 15;
+  double fontSize = 16;
 
   int? expandedIndex;
 
@@ -279,7 +286,7 @@ class _DataListState extends State<DataList> {
                                                         text: 'Name: ',
                                                         style: TextStyle(
                                                             fontWeight:
-                                                                FontWeight.w500,
+                                                                FontWeight.w600,
                                                             fontSize: fontSize,
                                                             color:
                                                                 Colors.black),
@@ -302,7 +309,7 @@ class _DataListState extends State<DataList> {
                                                         text: 'Email: ',
                                                         style: TextStyle(
                                                             fontWeight:
-                                                             FontWeight.w500,
+                                                             FontWeight.w600,
 
                                                             fontSize: fontSize,
                                                             color:
@@ -314,7 +321,7 @@ class _DataListState extends State<DataList> {
                                                                   .email
                                                                   .toString(),
                                                               style: TextStyle(
-                                                                  fontSize: 14,
+                                                                  fontSize: 15,
                                                                   overflow:
                                                                       TextOverflow
                                                                           .ellipsis,
@@ -331,7 +338,8 @@ class _DataListState extends State<DataList> {
                                                             'Current Balance: ',
                                                         style: TextStyle(
                                                                  fontWeight:
-                                                             FontWeight.w500,
+                                                             FontWeight.w600,
+                                                            
                                                             fontSize: fontSize,
                                                             color:
                                                                 Colors.black),

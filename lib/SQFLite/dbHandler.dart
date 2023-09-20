@@ -3,7 +3,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:io' as io;
 import 'package:path/path.dart';
-import 'package:tsf_task_1/db_model.dart';
+import 'package:tsf_task_1/SQFLite/db_model.dart';
 
 class DBHelper{
 
