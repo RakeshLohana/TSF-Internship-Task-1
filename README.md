@@ -1,4 +1,4 @@
-# tsf_task_1
+# TSF-Internship-Task-1
 
 A new Flutter project.
 
